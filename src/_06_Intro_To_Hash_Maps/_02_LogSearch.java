@@ -110,10 +110,9 @@ public class _02_LogSearch implements ActionListener {
 			}
 		}
 		if(z.getSource() == remove) {
-			String IDS = JOptionPane.showInputDialog("What ID do you want to assign a value to?");
-			Integer ID = Integer.parseInt(IDS);
-			String entryAnswer = JOptionPane.showInputDialog("What would you like to assign to this ID?");
-			hash.put(ID,entryAnswer);
+			String removeS = JOptionPane.showInputDialog("What ID do you want remove?");
+			Integer remove = Integer.parseInt(removeS);
+			hash.remove(remove);
 		}
 	}
 

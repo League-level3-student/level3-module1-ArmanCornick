@@ -23,6 +23,17 @@ public class MeetingScheduler {
      */
     public static Schedule getMutualAvailability(Schedule person1, Schedule person2) {
         
-        return null;
+    	Schedule mutual = new Schedule();
+    	
+    	for(String e : person1.getSchedule().keySet()) {
+    		for(int i : person1.getSchedule().get(e)) {
+    			if(person2.getSchedule().get(e).contains(i)) {
+    				mutual.addAvailability(e, i);
+    			}
+    		}
+    	}
+    	
+    	
+        return mutual;
     }
 }
