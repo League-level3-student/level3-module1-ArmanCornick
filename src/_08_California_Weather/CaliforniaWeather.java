@@ -80,7 +80,17 @@ public class CaliforniaWeather implements ActionListener {
 	public void actionPerformed(ActionEvent z) {
 		// TODO Auto-generated method stub
 		if(z.getSource()==searchTemp) {
-			
+			String listE = "Cities with this temperature include:\n";
+			String temperatureMin = Utilities.capitalizeWords(JOptionPane.showInputDialog("Name a minimum temperature."));
+			String temperatureMax = Utilities.capitalizeWords(JOptionPane.showInputDialog("Name a maximum temperature."));
+			Double min = Double.parseDouble(temperatureMin);
+			Double max = Double.parseDouble(temperatureMax);
+			for(String e : weatherData.keySet()) {
+				if(weatherData.get(e).temperatureF > min && weatherData.get(e).temperatureF < max) {
+					listE += e + ", ";
+				}		
+			}
+			JOptionPane.showMessageDialog(null, listE);
 		}
 		if(z.getSource()==searchWeather) {
 			String list = "Cities with this weather include:\n";
